@@ -12,10 +12,13 @@ Widget build(BuildContext context) {
   return MaterialApp(
     title: 'Sandwich Shop App',
     home: Scaffold(
-      appBar: AppBar(title: const Text('Sandwich Counter')),
+      appBar: AppBar(
+       title: const Text('My Sandwich Shop'),
+
+),
       body: const Center(
-          child: OrderItemDisplay(5, 'Footlong'),
-      ),
+          child: OrderItemDisplay(5, 'Footlong')),
+
     ),
   );
 }
