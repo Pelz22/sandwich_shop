@@ -7,21 +7,39 @@ void main() {
 class App extends StatelessWidget {
   const App({super.key});
 
-@override
-Widget build(BuildContext context) {
-  return MaterialApp(
-    title: 'Sandwich Shop App',
-    home: Scaffold(
-      appBar: AppBar(
-       title: const Text('My Sandwich Shop'),
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Sandwich Shop App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('My Sandwich Shop'),
+          backgroundColor: Colors.orange,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            OrderItemDisplay(5, 'Footlong'),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () => print('Add button pressed!'),
+                  child: const Text('Add'),
+                ),
 
-),
-      body: const Center(
-          child: OrderItemDisplay(5, 'Footlong')),
-
-    ),
-  );
-}
+                const SizedBox(width: 16),
+                
+                ElevatedButton(
+                  onPressed: () => print('remove button pressed!'),
+                  child: const Text('Remove'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class OrderItemDisplay extends StatelessWidget {
@@ -31,9 +49,9 @@ class OrderItemDisplay extends StatelessWidget {
   const OrderItemDisplay(this.quantity, this.itemType, {super.key});
 
   @override
-Widget build(BuildContext context) {
-  return Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}');
-}
+  Widget build(BuildContext context) {
+    return Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}');
+  }
 }
 
 class MyApp extends StatelessWidget {
